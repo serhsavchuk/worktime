@@ -1,12 +1,12 @@
 <template>
   <button class="btn-primary" type="button">
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
 <script>
 export default {
-  name: "ButtonApply"
+  name: 'ButtonApply'
 }
 </script>
 

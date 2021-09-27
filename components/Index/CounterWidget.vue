@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "CounterWidget"
+  name: 'CounterWidget'
 }
 </script>
 
