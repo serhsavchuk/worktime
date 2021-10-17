@@ -14,7 +14,10 @@
       </div>
     </main>
     <div class="footer py-3">
-      <h4 class="text-center text-muted">Serhii Savchuk | {{ new Date().getFullYear() }}</h4>
+      <h4 class="text-center text-muted">{{ $t('serhii-savchuk') }} | {{ new Date().getFullYear() }}</h4>
+      <div class="locales">
+        <NuxtLink to="/" class="mx-2">укр</NuxtLink> | <NuxtLink to="/en/" class="mx-2">en</NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -94,5 +97,14 @@ export default Vue.extend({})
   }
   .main, .footer {
     background-color: $soft-white;
+  }
+  .locales {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: $muted-color;
   }
 </style>

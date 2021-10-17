@@ -38,14 +38,26 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    langDir: '~/locales/',
+    locales: [
+      { code: 'uk', iso: 'uk-UA', file: 'uk.json', },
+      { code: 'en', iso: 'en-EN', file: 'en.json', },
+    ],
+    defaultLocale: 'uk',
+    vueI18n: {
+      fallbackLocale: 'en',         
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

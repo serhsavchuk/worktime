@@ -3,23 +3,23 @@
   <div>
     <div class="card">
       <div class="card-body">
-        <p>Current worktime: <span :class="{'success': currentWorktimeData.length}">{{currentWorktimeData.length ? currentWorktimeData : 'None'}}</span></p>
+        <p>{{ $t('current-worktime') }}: <span :class="{'success': currentWorktimeData.length}">{{currentWorktimeData.length ? currentWorktimeData : $t('none')}}</span></p>
         <div class="input-group">
           <div>
-            <p class="text-center fs-20 fw-500 text-muted">Start work</p>
-            <UIKitInputMask v-model="startTime" :placeholder="'hh:mm'" class="input-field" />
+            <p class="text-center fs-20 fw-500 text-muted">{{ $t('start-work') }}</p>
+            <UIKitInputMask ref="typeBox" v-model="startTime" :placeholder="'hh:mm'" class="input-field" :isError="isNameInErrorsArray('startTimeFormat')" />
           </div>
           <div>
-            <p class="text-center fs-20 fw-500 text-muted">End work</p>
-            <UIKitInputMask v-model="endTime" :placeholder="'hh:mm'" class="input-field" />
+            <p class="text-center fs-20 fw-500 text-muted">{{ $t('end-work') }}</p>
+            <UIKitInputMask v-model="endTime" :placeholder="'hh:mm'" class="input-field" :isError="isNameInErrorsArray('endTimeFormat')" />
           </div>
         </div>
         <div class="errors-container">
-          <p class="error-message" v-if="isNameInErrorsArray('endTimeCanNotBeLessThanStartTime')">End time can't be less than Start time.</p>
+          <p class="error-message" v-if="isNameInErrorsArray('endTimeCanNotBeLessThanStartTime')">{{ $t('end-time-cant-be-less-than-start-time') }}</p>
         </div>
         <div class="buttons-section">
-          <UIKitButtonApply @click="saveRecord()" :disabled="errors.length > 0" > Save </UIKitButtonApply>
-          <UIKitButtonRemove @click="clearWidgetData(); errors = []" class="btn-remove"> Clear </UIKitButtonRemove>
+          <UIKitButtonApply @click="saveRecord()" :disabled="errors.length > 0" > {{ $t('save') }} </UIKitButtonApply>
+          <UIKitButtonRemove @click="clearWidgetData(); errors = []" class="btn-remove"> {{ $t('clear') }} </UIKitButtonRemove>
         </div>
       </div>
     </div>
@@ -47,12 +47,14 @@ export default {
       immediate: true,
       handler(newValue) {
         this.validate(newValue, 'startTimeIsEmpty')
+        this.isRightTimeFormat(newValue, 'startTimeFormat')
       }
     },
     endTime: {
       immediate: true,
       handler(newValue) {
         this.validate(newValue, 'endTimeIsEmpty')
+        this.isRightTimeFormat(newValue, 'endTimeFormat')
       }
     },
   },
@@ -87,13 +89,15 @@ export default {
       return this.errors.findIndex(el => el === name) >= 0;
     },
     saveRecord(){
-      console.log('saverecord')
       this.$store.commit('time_list/addRecordToJournal', {
         startTime: this.startTime,
         endTime: this.endTime,
         currentWorktime: this.currentWorktimeData,
       });
-      this.clearWidgetData();
+      this.clearWidgetData();      
+      this.$nextTick(() => {
+        this.$refs.typeBox.$el.focus();        
+      })
     },
     clearWidgetData(){
       this.startTime = '';
@@ -103,6 +107,13 @@ export default {
       if(val.length !== 5)
         this.addErrorName(name)
       else this.removeErrorName(name)
+    },
+    isRightTimeFormat(val, name){
+      if(val.length !== 5) { return }
+      
+      if(times.isTimeValid(val))
+        this.removeErrorName(name)
+      else this.addErrorName(name)
     }
   },
 }

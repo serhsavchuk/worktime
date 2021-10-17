@@ -2,19 +2,19 @@
   <div>
     <div class="card">
       <div class="total-section">
-        <p>Total worktime: <span :class="{'success': totalWorktime !== '00:00'}">{{ totalWorktime }}</span> hr.</p>
+        <p>{{ $t('total-worktime') }}: <span :class="{'success': totalWorktime !== '00:00'}">{{ totalWorktime }}</span> {{ $t('hr') }}.</p>
         <div>
-          <UIKitButtonRemove @click="clearJournal()"> Wipe </UIKitButtonRemove>
+          <UIKitButtonRemove @click="clearJournal()"> {{ $t('wipe') }} </UIKitButtonRemove>
         </div>
       </div>
       <table id="journal">
         <thead>
           <tr>
             <th>#</th>
-            <th>Start time</th>
-            <th>End time</th>
-            <th>Worked time</th>
-            <th>Actions</th>
+            <th>{{ $t('start-time') }}</th>
+            <th>{{ $t('end-time') }}</th>
+            <th>{{ $t('worked-time') }}</th>
+            <th>{{ $t('actions') }}</th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +30,7 @@
             </td>
           </tr>
           <tr v-if="journalRecordsData.length === 0">
-            <td colspan="5" class="text-center text-muted fw-500">Enter data</td>
+            <td colspan="5" class="text-center text-muted fw-500">{{ $t('enter-data') }}</td>
           </tr>
         </tbody>
       </table>
@@ -64,7 +64,6 @@ export default {
   methods: {
     deleteRecord(index) {
       this.$store.commit('time_list/removeRecordByIndex', index)
-      console.log('del', index)
     },
     sumJournalRecordsCurrentTime(recordsData){
       const timesData = recordsData.map(el => el.currentWorktime);

@@ -1,0 +1,18 @@
+{
+  "current-worktime": "Годин за день",
+  "actions": "Дії",
+  "clear": "Очистити",
+  "end-time": "Завершення",
+  "end-time-cant-be-less-than-start-time": "Час Завершення не може бути меншим за час Початку.",
+  "end-work": "Кінець праці",
+  "enter-data": "Введіть дані",
+  "hr": "год",
+  "none": "Немає даних",
+  "save": "Зберегти",
+  "start-time": "Початок",
+  "start-work": "Початок праці",
+  "total-worktime": "Загальний робочий час",
+  "wipe": "Видалити",
+  "worked-time": "Відпрацьовано",
+  "serhii-savchuk": "Сергій Савчук"
+}

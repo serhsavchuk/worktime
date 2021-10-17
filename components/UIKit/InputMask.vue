@@ -1,10 +1,9 @@
 
 <template>
-  <the-mask v-model="maskInputData" :mask="'##:##'" :masked="true" class="mask" />
+  <the-mask v-model="maskInputData" :mask="'##:##'" :masked="true" class="mask" :class="{'error': isError}" ref="inputMask" />
 </template>
 
 <script>
-/* eslint-disable no-console */
 export default {
   name: 'InputMask',
   emits: ['input'],
@@ -12,6 +11,10 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    isError: {
+      type: Boolean,
+      default: false
     },
   },
   computed: {
@@ -22,7 +25,7 @@ export default {
       set(val) {
         this.$emit('input', val)
       }
-    }
+    },
   }
 }
 </script>
@@ -35,5 +38,9 @@ export default {
   .mask:focus {
     outline: none;
     box-shadow: none;
+  }
+  .error {
+    color: $danger-color;
+    border-bottom: 1px solid $danger-color;
   }
 </style>

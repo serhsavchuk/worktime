@@ -20,7 +20,7 @@ export default {
     background-image: none;
     border-color: $danger-color;
     border: 1px solid transparent;
-    padding: 5px;
+    padding: 5px 10px;
     font-size: 1rem;
     border-radius: .25rem;
   }
