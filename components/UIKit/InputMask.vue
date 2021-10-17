@@ -1,23 +1,39 @@
+
 <template>
-  <the-mask :mask="'hH:mM'" :tokens="maskTokens" />
+  <the-mask v-model="maskInputData" :mask="'##:##'" :masked="true" class="mask" />
 </template>
 
 <script>
+/* eslint-disable no-console */
 export default {
   name: 'InputMask',
-  data () {
-    return {
-      maskTokens: {
-        h: { pattern: /[0-2]/ },
-        H: { pattern: /[0-3]/ },
-        m: { pattern: /[0-5]/ },
-        M: { pattern: /[1-9]/ }
+  emits: ['input'],
+  props: {
+    value: {
+      type: String,
+      default: ''
+    },
+  },
+  computed: {
+    maskInputData: {
+      get() {
+        return this.value
+      },
+      set(val) {
+        this.$emit('input', val)
       }
     }
   }
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .mask {
+    @include input;
+    text-align: center;
+  }
+  .mask:focus {
+    outline: none;
+    box-shadow: none;
+  }
 </style>
