@@ -2,8 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: '/worktime/'
+    base: 'https://github.com/serhsavchuk/worktime/dist/'
   },
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
