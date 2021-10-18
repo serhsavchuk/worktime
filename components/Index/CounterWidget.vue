@@ -19,7 +19,7 @@
         </div>
         <div class="buttons-section">
           <UIKitButtonApply @click="saveRecord()" :disabled="errors.length > 0" > {{ $t('save') }} </UIKitButtonApply>
-          <UIKitButtonRemove @click="clearWidgetData(); errors = []" class="btn-remove"> {{ $t('clear') }} </UIKitButtonRemove>
+          <UIKitButtonRemove @click="clearWidgetData();" class="btn-remove"> {{ $t('clear') }} </UIKitButtonRemove>
         </div>
       </div>
     </div>
