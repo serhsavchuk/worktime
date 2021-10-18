@@ -4,7 +4,8 @@ export default {
   router: {
     base: '/worktime/'
   },
-  ssr: true,
+  ssr: false,
+  mode:'spa',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {

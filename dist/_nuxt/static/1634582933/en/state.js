@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fworktime\u002F_nuxt\u002Fstatic\u002F1634582933",layout:"default",error:a,state:{time_list:{timeJournal:[]},i18n:{routeParams:{}}},serverRendered:true,routePath:"\u002Fen",config:{_app:{basePath:"\u002Fworktime\u002F",assetsPath:"\u002Fworktime\u002F_nuxt\u002F",cdnURL:a}}}}(null));
