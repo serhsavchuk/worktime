@@ -9,8 +9,7 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "pushdir": "push-dir --dir=dist --branch=gh-pages --cleanup",
-    "deploy": "gh-pages -d dist"
+    "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^7.0.3",
