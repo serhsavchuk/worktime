@@ -5,7 +5,6 @@ export default {
     base: '/worktime/'
   },
   ssr: false,
-  mode:'spa',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
