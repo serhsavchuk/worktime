@@ -27,7 +27,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "eslint": "^7.29.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-vue": "^7.19.1",
+    "eslint-plugin-vue": "^8.0.3",
     "fibers": "^5.0.0",
     "gh-pages": "^3.2.3",
     "node-sass": "^6.0.1",
