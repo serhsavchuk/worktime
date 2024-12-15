@@ -1,37 +1,36 @@
 {
   "name": "worktime",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/",
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^7.0.3",
-    "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.18.3",
-    "nuxt": "^2.15.7",
-    "vue-the-mask": "^0.11.1"
+    "pinia": "^2.2.6",
+    "vue": "^3.5.13"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14.7",
-    "@nuxt/types": "^2.15.7",
-    "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/eslint-config-typescript": "^6.0.1",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/style-resources": "^1.2.1",
-    "eslint": "^7.29.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "fibers": "^5.0.0",
-    "gh-pages": "^3.2.3",
-    "node-sass": "^6.0.1",
-    "push-dir": "^0.4.1",
-    "sass-loader": "^10.2.0"
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.9.3",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-prettier": "^10.1.0",
+    "@vue/eslint-config-typescript": "^14.1.3",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.14.0",
+    "eslint-plugin-vue": "^9.30.0",
+    "npm-run-all2": "^7.0.1",
+    "prettier": "^3.3.3",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.1",
+    "vite-plugin-vue-devtools": "^7.6.5",
+    "vue-tsc": "^2.1.10"
   }
 }
