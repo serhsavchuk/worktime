@@ -4,7 +4,8 @@
             <tr>
                 <th colspan="5">
                     <div class="row g-3">
-                        <div class="col-12 col-md-6">Всього відпрацьовано: <span class="text-success">{{ logTotalTime }}</span></div>
+                        <div class="col-12 col-md-6">Всього відпрацьовано: <span class="text-success">{{ logTotalTime
+                                }}</span></div>
                         <div class="col-12 col-md-6 text-md-end">
                             <button type="button" class="btn btn-sm btn-outline-danger"
                                 @click="onClearAllLogsButtonClick">
@@ -19,9 +20,18 @@
             </tr>
             <tr>
                 <th scope="col" class="col text-center">№</th>
-                <th scope="col" class="col-4">Початок</th>
-                <th scope="col" class="col-4">Завершення</th>
-                <th scope="col" class="col-4">Відпрацьовано</th>
+                <th scope="col" class="col-4">
+                    <span class="d-none d-sm-inline">Початок</span>
+                    <span class="d-sm-none">Поч.</span>
+                </th>
+                <th scope="col" class="col-4">
+                    <span class="d-none d-sm-inline">Завершення</span>
+                    <span class="d-sm-none">Зав.</span>
+                </th>
+                <th scope="col" class="col-4">
+                    <span class="d-none d-sm-inline">Відпрацьовано</span>
+                    <span class="d-sm-none">Відпр.</span>
+                </th>
                 <th scope="col" class="col" style="min-width: 51px;"></th>
             </tr>
         </thead>
